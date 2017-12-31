@@ -8,6 +8,11 @@
     <string name="interest_rate">Interest Rate</string>
     <string name="Back">Back</string>
     <string name="next">next</string>
+    <string name="name">Name</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="re_password">Re-Enter password</string>
     <string name="interestContent">"Inflation rate can be defined as a general rise in the price of goods and service.\n\n If the annual inflation rate is 20\u0025, that means prices will on average,increase by 20\u0025 in a year.\n\n Inflation reduces the purchasing power of your money.\n\nNeedless to say, if the annual inflation rate is 0\u0025, that means price will,on average, remain the same."</string>
     <string name="interestContent2">Example 1 : \nInflation rate = 100%\n\nToday: You have $1,000\n- A basket of goods and service cost $500.\n- You can buy 2 baskets.\n- A bank pays 100\u0025 interest.\n- Invest $1000 and get $2000 next year.\n\n\n\nAfter 1 year : You have $2,000\n- A basket of goods cost $1,000 \n- You can buy 2 baskets of goods and services! \n
 </string>
