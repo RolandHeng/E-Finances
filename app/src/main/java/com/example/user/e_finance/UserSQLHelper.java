@@ -12,10 +12,10 @@ import com.example.user.e_finance.UserContract.User;
 
 public class UserSQLHelper extends SQLiteOpenHelper {
     public static final int DATABASE_VERSION = 1;
-    public static final String DATABASE_NAME = "Finance.db";
+    public static final String DATABASE_NAME = "FinanceUser.db";
     private static final String SQL_CREATE_ENTRIES = "CREATE	TABLE	" + User.TABLE_NAME + "(" +
             User.COLUMN_NAME + "	TEXT," + User.COLUMN_EMAIL + "	TEXT ," + User.COLUMN_USERNAME+" TEXT ,"
-            + User.COLUMN_PASSWORD+" TEXT " +")";
+            + User.COLUMN_PASSWORD+" TEXT ," + User.COLUMN_MOBILE+" TEXT ,"+User.COLUMN_ADDRESS+" TEXT "+")";
     private static final String SQL_DELETE_ENTRIES = "DROP	TABLE	IF	EXISTS	" + User.TABLE_NAME;
 
 

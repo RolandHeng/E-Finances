@@ -11,6 +11,25 @@ public class UserRecord {
     private String name;
     private String email;
     private String password;
+    private String contactno;
+    private String address;
+
+    public String getContactno() {
+        return contactno;
+    }
+
+    public void setContactno(String contactno) {
+        this.contactno = contactno;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
 
     public UserRecord() {
     }
@@ -23,12 +42,15 @@ public class UserRecord {
         this.username = username;
     }
 
-    public UserRecord(String username, String name, String email, String password) {
+    public UserRecord(String username, String name, String email, String password, String contactno, String address) {
         this.username = username;
         this.name = name;
         this.email = email;
         this.password = password;
+        this.contactno = contactno;
+        this.address = address;
     }
+
 
     public String getPassword() {
         return password;

@@ -39,6 +39,8 @@ public class UserDataSource {
         values.put(UserContract.User.COLUMN_EMAIL, userRecord.getEmail());
         values.put(UserContract.User.COLUMN_USERNAME,userRecord.getUsername());
         values.put(UserContract.User.COLUMN_PASSWORD,userRecord.getPassword());
+        values.put(UserContract.User.COLUMN_MOBILE,userRecord.getContactno());
+        values.put(UserContract.User.COLUMN_ADDRESS,userRecord.getAddress());
 
         database = dbHelper.getWritableDatabase();
         database.insert(User.TABLE_NAME, null, values);
@@ -57,15 +59,30 @@ public class UserDataSource {
 
                 if(a.equals(username)){
                     b = cursor.getString(1);
-
                 }
-
-
             }while(cursor.moveToNext());
 
         }
         return b;
+    }
+    public String seachEmail(String username){
+        database = dbHelper.getWritableDatabase();
+        String query = "select username, email from "+ User.TABLE_NAME;
+        Cursor cursor = database.rawQuery(query , null);
+        String a,b;
+        b = "Not Found!";
+        if(cursor.moveToFirst()){
+            do{
+                a = cursor.getString(0);
 
+                if(a.equals(username)){
+                    b = cursor.getString(1);
+
+                }
+            }while(cursor.moveToNext());
+
+        }
+        return b;
     }
 
     public List<UserRecord> getAllUsers() {

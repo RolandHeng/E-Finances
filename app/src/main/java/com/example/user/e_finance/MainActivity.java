@@ -13,52 +13,103 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.HashMap;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-
+    UserDataSource helper = new UserDataSource(this);
+    UserSessionManager session;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        session = new UserSessionManager(getApplicationContext());
+
+
+
+        Toast.makeText(getApplicationContext(),
+                "User Login Status: " + session.isUserLoggedIn(),
+                Toast.LENGTH_LONG).show();
+
+        if(session.checkLogin())
+            finish();
+        //session = new Session(this);
+        //if(!session.loggedin()){
+        //    logout();
+       // }
+
+        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
+
+        HashMap<String, String> user = session.getUserDetails();
+
+        // get name
+        String name = user.get(UserSessionManager.KEY_NAME);
+
+        // get email
+
+
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
+        //updateList();
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+
+        TextView tfun = (TextView) header.findViewById(R.id.navUsername);
+        TextView tfemail = (TextView) header.findViewById(R.id.navEmail);
+        tfun.setText(name);
+        String email = "";
+        email = helper.seachEmail(name);
+        tfemail.setText(email);
+
+
     }
-    public void getMessage(View v){
+
+/*    public void logout(){
+
+        session.setLoggedin(false);
+        finish();
+        startActivity(new Intent(MainActivity.this,LogIn.class));
+    }*/
+
+
+    public void getMessage(View v) {
         Intent intentGetMessage = new Intent(this, InterestRate.class);
 
-        startActivityForResult(intentGetMessage,2);
+        startActivityForResult(intentGetMessage, 2);
     }
 
-    public void gocost(View v){
+    public void gocost(View v) {
         Intent intentGetMessage = new Intent(this, monthlyCostCal.class);
 
-        startActivityForResult(intentGetMessage,2);
+        startActivityForResult(intentGetMessage, 2);
     }
 
-    public void godebt(View v){
+
+    public void godebt(View v) {
         Intent intentGetMessage = new Intent(this, debtCal.class);
 
-        startActivityForResult(intentGetMessage,2);
+        startActivityForResult(intentGetMessage, 2);
     }
 
    /* @Override
@@ -76,6 +127,38 @@ public class MainActivity extends AppCompatActivity
         }
     }*/
 
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+    }
+
+    private void updateList() {
+        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
+        View header = navigationView.getHeaderView(0);
+
+        TextView tfun = (TextView) header.findViewById(R.id.navUsername);
+        TextView tfemail = (TextView) header.findViewById(R.id.navEmail);
+        EditText tf = (EditText) findViewById(R.id.LoginUsername);
+
+        Intent intent = getIntent();
+
+        String message = "";
+        message = intent.getStringExtra(LogIn.EXTRA_MESSAGE);
+        if (!message.equals("")) {
+
+            String email = "";
+            email = helper.seachEmail(message);
+            tfun.setText(message);
+            tfemail.setText(email);
+        } else {
+            tfun.setText("Guest");
+            tfemail.setText("Please Register / Log In");
+        }
+
+
+    }
 
 
     @Override
@@ -117,9 +200,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-
             Intent inte = new Intent(this, LogIn.class);
             startActivity(inte);
+
             // Handle the camera action
         } else if (id == R.id.nav_gallery) {
             Intent inten = new Intent(this, Register.class);
@@ -127,6 +210,7 @@ public class MainActivity extends AppCompatActivity
             startActivity(inten);
 
         } else if (id == R.id.nav_slideshow) {
+            session.logoutUser();
 
         } else if (id == R.id.nav_manage) {
 

@@ -17,24 +17,42 @@ public class Register extends AppCompatActivity {
     }
 
     public void saveRecord(View v) {
-        EditText editTextName, editTextEmail,editTextUserName,editTextPassword;
+        EditText editTextName, editTextEmail,editTextUserName,editTextPassword,editTextContact,editTextAddress,editTextRePassword;
         editTextName = (EditText) findViewById(R.id.tfName);
         editTextEmail = (EditText) findViewById(R.id.tfEmail);
         editTextUserName = (EditText) findViewById(R.id.tfUsername);
         editTextPassword = (EditText) findViewById(R.id.tfPassword);
-
+        editTextRePassword = (EditText) findViewById(R.id.tfRePassword);
+        editTextContact = (EditText) findViewById(R.id.tfMobile);
+        editTextAddress = (EditText) findViewById(R.id.tfAddress);
 
         UserRecord userRecord = new UserRecord();
         userRecord.setName(editTextName.getText().toString());
         userRecord.setEmail(editTextEmail.getText().toString());
         userRecord.setUsername(editTextUserName.getText().toString());
         userRecord.setPassword(editTextPassword.getText().toString());
+        userRecord.setContactno(editTextContact.getText().toString());
+        userRecord.setAddress(editTextAddress.getText().toString());
+        if(editTextRePassword.getText().toString().equals(editTextPassword.getText().toString())){
+            UserDataSource userDataSource = new UserDataSource(this);
+            userDataSource.insertUser(userRecord);
 
-        UserDataSource userDataSource = new UserDataSource(this);
-        userDataSource.insertUser(userRecord);
+            this.finish();
+        }else{
 
-        this.finish();    //Terminate	this	Activity					}
+            Toast temp = Toast.makeText(Register.this, "Password Does not match !", Toast.LENGTH_SHORT);
 
+            temp.show();
+        }
+
+   //Terminate	this	Activity					}
+
+    }
+
+    public void RegisterClick(View v) {
+        Intent intentGetMessage = new Intent(this, LogIn.class);
+
+        startActivity(intentGetMessage);
     }
 
 
