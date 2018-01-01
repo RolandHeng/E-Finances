@@ -29,7 +29,8 @@
         <activity
             android:name=".Register"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ManageProfile"></activity>
+        <activity android:name=".ManageProfile"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

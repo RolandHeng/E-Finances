@@ -16,6 +16,7 @@
         android:id="@+id/button3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@color/lightBlue"
         android:onClick="backmain"
         android:text="Main Menu"
         android:layout_marginBottom="16dp"
