@@ -68,5 +68,15 @@ public class monthlyCostCal extends AppCompatActivity {
         Intent intentGetMessage = new Intent(this, MainActivity.class);
 
         startActivityForResult(intentGetMessage,2);
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intentGetMessage = new Intent(this, MainActivity.class);
+
+        startActivityForResult(intentGetMessage,2);
+        finish();
+
     }
 }

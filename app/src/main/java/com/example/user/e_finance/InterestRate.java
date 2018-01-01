@@ -22,12 +22,22 @@ public class InterestRate extends AppCompatActivity {
         Intent intentGetMessage = new Intent(this, MainActivity.class);
 
         startActivityForResult(intentGetMessage,2);
+        finish();
     }
 
     public void gonext(View v){
         Intent intentGetMessage = new Intent(this, interest2.class);
 
         startActivityForResult(intentGetMessage,2);
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        Intent intentGetMessage = new Intent(this, MainActivity.class);
+
+        startActivityForResult(intentGetMessage,2);
+        finish();
+
     }
 
     public void submitMessage(View V){

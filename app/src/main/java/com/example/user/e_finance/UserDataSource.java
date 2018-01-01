@@ -46,6 +46,17 @@ public class UserDataSource {
         database.insert(User.TABLE_NAME, null, values);
         database.close();
     }
+    public void updateUser(UserRecord userRecord){
+
+
+        database = dbHelper.getWritableDatabase();
+        database.execSQL("UPDATE user set email = '" + userRecord.getEmail() +"' , contactno = '"+ userRecord.getContactno()+"', " +
+                "address = '"+userRecord.getAddress()+"' WHERE username = '"+userRecord.getUsername()+"' ");
+        database.close();
+    }
+
+
+
 
     public String searchPass(String username){
         database = dbHelper.getWritableDatabase();
@@ -84,6 +95,48 @@ public class UserDataSource {
         }
         return b;
     }
+
+    public String seachAddress(String username){
+        database = dbHelper.getWritableDatabase();
+        String query = "select username, address from "+ User.TABLE_NAME;
+        Cursor cursor = database.rawQuery(query , null);
+        String a,b;
+        b = "Not Found!";
+        if(cursor.moveToFirst()){
+            do{
+                a = cursor.getString(0);
+
+                if(a.equals(username)){
+                    b = cursor.getString(1);
+
+                }
+            }while(cursor.moveToNext());
+
+        }
+        return b;
+    }
+
+    public String searchContact(String username){
+        database = dbHelper.getWritableDatabase();
+        String query = "select username, contactno from "+ User.TABLE_NAME;
+        Cursor cursor = database.rawQuery(query , null);
+        String a,b;
+        b = "Not Found!";
+        if(cursor.moveToFirst()){
+            do{
+                a = cursor.getString(0);
+
+                if(a.equals(username)){
+                    b = cursor.getString(1);
+
+                }
+            }while(cursor.moveToNext());
+
+        }
+        return b;
+    }
+
+
 
     public List<UserRecord> getAllUsers() {
         List<UserRecord> records = new ArrayList<UserRecord>();

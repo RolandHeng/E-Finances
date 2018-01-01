@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/ScrollView01"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,53 +14,50 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.example.user.e_finance.MainActivity"
     tools:showIn="@layout/app_bar_main"
-    tools:layout_editor_absoluteY="81dp"
+    tools:layout_editor_absoluteY="0dp"
     tools:layout_editor_absoluteX="0dp">
 
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:text="Time value of money"
-        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/button12"
         tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/button9"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/button9"
+        app:layout_constraintRight_toRightOf="@+id/button13"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/button9" />
+        app:layout_constraintLeft_toLeftOf="@+id/button13" />
 
     <Button
         android:id="@+id/button11"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="54dp"
+        android:layout_marginStart="54dp"
         android:text="risk and return"
-        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="22dp"
+        app:layout_constraintTop_toBottomOf="@+id/button13"
         tools:layout_constraintRight_creator="1"
-        app:layout_constraintRight_toRightOf="@+id/button"
-        android:layout_marginTop="8dp"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintRight_toRightOf="parent"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="@+id/button" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="54dp"
+        android:layout_marginRight="54dp" />
 
     <Button
         android:id="@+id/button9"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:onClick="getMessage"
         android:text="INterest rate"
         tools:text="@string/interest_rate"
-        tools:layout_constraintTop_creator="1"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView5"
         tools:layout_constraintRight_creator="1"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginTop="56dp"
+        app:layout_constraintRight_toRightOf="@+id/button12"
         tools:layout_constraintLeft_creator="1"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="55dp" />
+        app:layout_constraintLeft_toLeftOf="@+id/button12" />
 
     <TextView
         android:id="@+id/textView5"
@@ -61,13 +65,8 @@
         android:layout_height="28dp"
         android:text="Lecture"
         tools:layout_constraintTop_creator="1"
-        tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/button9"
-        app:layout_constraintRight_toRightOf="@+id/textView8"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="70dp"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="12dp"
         app:layout_constraintLeft_toLeftOf="@+id/button9"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -76,47 +75,37 @@
         android:layout_width="126dp"
         android:layout_height="28dp"
         android:text="Calculator"
-        tools:layout_constraintTop_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="@+id/button13"
-        android:layout_marginTop="37dp"
-        app:layout_constraintTop_toBottomOf="@+id/button11"
-        tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="41dp"
-        app:layout_constraintLeft_toLeftOf="@+id/button13" />
+        android:layout_marginLeft="63dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginTop="63dp"
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        android:layout_marginStart="63dp" />
 
     <Button
         android:id="@+id/button12"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:onClick="gocost"
         android:text="Monthly expenses"
+        android:layout_marginTop="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/button9"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="@+id/button13"
+        app:layout_constraintRight_toRightOf="@+id/button"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="130dp"
-        app:layout_constraintLeft_toLeftOf="@+id/button13"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintLeft_toLeftOf="@+id/button" />
 
     <Button
         android:id="@+id/button13"
         android:layout_width="0dp"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:onClick="godebt"
         android:text="debt"
+        android:layout_marginTop="29dp"
+        app:layout_constraintTop_toBottomOf="@+id/textView8"
         tools:layout_constraintRight_creator="1"
-        tools:layout_constraintBottom_creator="1"
-        app:layout_constraintBottom_toTopOf="@+id/button12"
-        android:layout_marginStart="55dp"
-        android:layout_marginEnd="55dp"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintRight_toRightOf="@+id/button11"
         tools:layout_constraintLeft_creator="1"
-        android:layout_marginBottom="11dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:layout_marginLeft="55dp"
-        android:layout_marginRight="55dp"
-        app:layout_constraintHorizontal_bias="0.0" />
+        app:layout_constraintLeft_toLeftOf="@+id/button11" />
 
 </android.support.constraint.ConstraintLayout>
+</ScrollView>

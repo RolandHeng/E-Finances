@@ -35,11 +35,6 @@ public class MainActivity extends AppCompatActivity
         session = new UserSessionManager(getApplicationContext());
 
 
-
-        Toast.makeText(getApplicationContext(),
-                "User Login Status: " + session.isUserLoggedIn(),
-                Toast.LENGTH_LONG).show();
-
         if(session.checkLogin())
             finish();
         //session = new Session(this);
@@ -47,25 +42,12 @@ public class MainActivity extends AppCompatActivity
         //    logout();
        // }
 
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
-
         HashMap<String, String> user = session.getUserDetails();
 
         // get name
         String name = user.get(UserSessionManager.KEY_NAME);
 
         // get email
-
-
-
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
         this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -79,26 +61,6 @@ public class MainActivity extends AppCompatActivity
 
         TextView tfun = (TextView) header.findViewById(R.id.navUsername);
         TextView tfemail = (TextView) header.findViewById(R.id.navEmail);
-        MenuItem nav_camara = menu.findItem(R.id.nav_camera);
-        MenuItem nav_gallery = menu.findItem(R.id.nav_gallery);
-        MenuItem nav_slideshow = menu.findItem(R.id.nav_slideshow);
-        MenuItem nav_manage = menu.findItem(R.id.nav_manage);
-        MenuItem nav_share = menu.findItem(R.id.nav_share);
-        MenuItem nav_send = menu.findItem(R.id.nav_send);
-        nav_share.setVisible(false);
-        nav_send.setVisible(false);
-        nav_camara.setVisible(true);
-        nav_camara.setIcon(null);
-        nav_gallery.setIcon(null);
-        nav_slideshow.setIcon(null);
-        nav_manage.setIcon(null);
-        nav_camara.setTitle("Monly Cost");
-        nav_gallery.setTitle("Risk and Return");
-        nav_slideshow.setTitle("Calculate Debt");
-        nav_manage.setTitle("Calculate Interest Rate");
-        MenuItem title = menu.add("Time Value of Money");
-
-
         tfun.setText(name);
         String email = "";
         email = helper.seachEmail(name);
@@ -107,24 +69,18 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-/*    public void logout(){
-
-        session.setLoggedin(false);
-        finish();
-        startActivity(new Intent(MainActivity.this,LogIn.class));
-    }*/
-
-
     public void getMessage(View v) {
         Intent intentGetMessage = new Intent(this, InterestRate.class);
 
         startActivityForResult(intentGetMessage, 2);
+        finish();
     }
 
     public void gocost(View v) {
         Intent intentGetMessage = new Intent(this, monthlyCostCal.class);
 
         startActivityForResult(intentGetMessage, 2);
+        finish();
     }
 
 
@@ -132,6 +88,7 @@ public class MainActivity extends AppCompatActivity
         Intent intentGetMessage = new Intent(this, debtCal.class);
 
         startActivityForResult(intentGetMessage, 2);
+        finish();
     }
 
    /* @Override
@@ -210,6 +167,7 @@ public class MainActivity extends AppCompatActivity
         //noinspection SimplifiableIfStatement
         if (id == R.id.SignOut) {
             session.logoutUser();
+            finish();
         }
 
         return super.onOptionsItemSelected(item);
@@ -222,23 +180,21 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_camera) {
-            Intent inte = new Intent(this, LogIn.class);
-            startActivity(inte);
 
-            // Handle the camera action
+
         } else if (id == R.id.nav_gallery) {
-            Intent inten = new Intent(this, Register.class);
 
-            startActivity(inten);
 
         } else if (id == R.id.nav_slideshow) {
-            session.logoutUser();
+
 
         } else if (id == R.id.nav_manage) {
 
-        } else if (id == R.id.nav_share) {
 
-        } else if (id == R.id.nav_send) {
+        } else if(id== R.id.nav_manageProfile){
+            Intent inten = new Intent(this, ManageProfile.class);
+
+            startActivity(inten);
 
         }
 

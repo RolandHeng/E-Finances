@@ -19,6 +19,7 @@ public class Register extends AppCompatActivity {
     }
 
     public void saveRecord(View v) {
+        boolean insert=  false;
         EditText editTextName, editTextEmail,editTextUserName,editTextPassword,editTextContact,editTextAddress,editTextRePassword;
         editTextName = (EditText) findViewById(R.id.tfName);
         editTextEmail = (EditText) findViewById(R.id.tfEmail);
@@ -35,17 +36,58 @@ public class Register extends AppCompatActivity {
         userRecord.setPassword(editTextPassword.getText().toString());
         userRecord.setContactno(editTextContact.getText().toString());
         userRecord.setAddress(editTextAddress.getText().toString());
-        if(editTextRePassword.getText().toString().equals(editTextPassword.getText().toString())){
+
+        if(editTextName.getText().toString().equals("")){
+
+            Toast temp = Toast.makeText(Register.this, "Name is empty!", Toast.LENGTH_SHORT);
+
+            temp.show();
+        }else if(editTextEmail.getText().toString().equals("")){
+            Toast temp = Toast.makeText(Register.this, "Email is empty!", Toast.LENGTH_SHORT);
+
+            temp.show();
+
+        }else if(editTextUserName.getText().toString().equals("")){
+            Toast temp = Toast.makeText(Register.this, "Username is empty!", Toast.LENGTH_SHORT);
+
+            temp.show();
+
+        }else if(editTextContact.getText().toString().equals("")){
+            Toast temp = Toast.makeText(Register.this, "Contact number is empty!", Toast.LENGTH_SHORT);
+
+            temp.show();
+
+        }else if(editTextAddress.getText().toString().equals("")){
+            Toast temp = Toast.makeText(Register.this, "Address is empty!", Toast.LENGTH_SHORT);
+
+            temp.show();
+
+        }else if(editTextPassword.getText().toString().equals("")){
+            Toast temp = Toast.makeText(Register.this, "Password is empty!", Toast.LENGTH_SHORT);
+
+            temp.show();
+
+        }else if(editTextRePassword.getText().toString().equals("")){
+            Toast temp = Toast.makeText(Register.this, "You need to key in password again is empty!", Toast.LENGTH_SHORT);
+
+            temp.show();
+
+        }else
+            insert = true;
+        if(editTextRePassword.getText().toString().equals(editTextPassword.getText().toString())&&!editTextRePassword.getText().toString().equals("")){
             UserDataSource userDataSource = new UserDataSource(this);
             userDataSource.insertUser(userRecord);
 
+            Intent intentGetMessage = new Intent(this, LogIn.class);
+            startActivity(intentGetMessage);
             this.finish();
-        }else{
+        }else if(!editTextRePassword.getText().toString().equals(editTextPassword.getText().toString())){
 
             Toast temp = Toast.makeText(Register.this, "Password Does not match !", Toast.LENGTH_SHORT);
 
             temp.show();
         }
+
 
    //Terminate	this	Activity					}
 
@@ -53,8 +95,8 @@ public class Register extends AppCompatActivity {
 
     public void RegisterClick(View v) {
         Intent intentGetMessage = new Intent(this, LogIn.class);
-
         startActivity(intentGetMessage);
+        finish();
     }
 
 

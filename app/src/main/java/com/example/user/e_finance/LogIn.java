@@ -21,9 +21,7 @@ public class LogIn extends AppCompatActivity {
 
         session = new UserSessionManager(this);
 
-        Toast.makeText(getApplicationContext(),
-                "User Login Status: " + session.isUserLoggedIn(),
-                Toast.LENGTH_LONG).show();
+
         //if(session.loggedin()){
         //    startActivity(new Intent(LogIn.this,MainActivity.class));
          //   finish();
@@ -39,6 +37,7 @@ public class LogIn extends AppCompatActivity {
         Intent intentGetMessage = new Intent(this, Register.class);
 
         startActivity(intentGetMessage);
+        finish();
     }
 
     public void onLogInClick(View v) {
@@ -64,7 +63,7 @@ public class LogIn extends AppCompatActivity {
 
         } else {
 
-            Toast temp = Toast.makeText(LogIn.this, "Username and Password Does not match !" + searchPassword, Toast.LENGTH_SHORT);
+            Toast temp = Toast.makeText(LogIn.this, "Username and Password Does not match !", Toast.LENGTH_SHORT);
 
             temp.show();
         }

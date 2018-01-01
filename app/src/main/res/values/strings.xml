@@ -8,10 +8,17 @@
     <string name="interest_rate">Interest Rate</string>
     <string name="Back">Back</string>
     <string name="next">next</string>
+    <string name="Monthly">Monthly Cost</string>
+    <string name="Calculate_Debt">Calculate Debt</string>
+    <string name="Calculate_Interest_Rate">Calculate Interest Rate</string>
+    <string name="Time_Value_of_Money">Time Value of Money</string>
+    <string name="Manage_Profile">Manage Profile</string>
+    <string name="riskReturn">Risk and Return</string>
     <string name="name">Name</string>
     <string name="email">Email</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="UpdateProfile">Update Profile</string>
     <string name="Inflation_Rate">Inflation Rate</string>
     <string name="SignUpText">No Account yet? Sign Up here!</string>
     <string name="LogInText">Already have an Account? Sign In here!</string>
