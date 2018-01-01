@@ -59,6 +59,7 @@ public class LogIn extends AppCompatActivity {
             Intent intentGetMessage = new Intent(this, MainActivity.class);
             intentGetMessage.putExtra(EXTRA_MESSAGE,str);
             startActivity(intentGetMessage);
+            finish();
 
 
         } else {

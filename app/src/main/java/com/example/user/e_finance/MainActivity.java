@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.view.SubMenu;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -74,9 +75,30 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
         View header = navigationView.getHeaderView(0);
+        Menu menu = navigationView.getMenu();
 
         TextView tfun = (TextView) header.findViewById(R.id.navUsername);
         TextView tfemail = (TextView) header.findViewById(R.id.navEmail);
+        MenuItem nav_camara = menu.findItem(R.id.nav_camera);
+        MenuItem nav_gallery = menu.findItem(R.id.nav_gallery);
+        MenuItem nav_slideshow = menu.findItem(R.id.nav_slideshow);
+        MenuItem nav_manage = menu.findItem(R.id.nav_manage);
+        MenuItem nav_share = menu.findItem(R.id.nav_share);
+        MenuItem nav_send = menu.findItem(R.id.nav_send);
+        nav_share.setVisible(false);
+        nav_send.setVisible(false);
+        nav_camara.setVisible(true);
+        nav_camara.setIcon(null);
+        nav_gallery.setIcon(null);
+        nav_slideshow.setIcon(null);
+        nav_manage.setIcon(null);
+        nav_camara.setTitle("Monly Cost");
+        nav_gallery.setTitle("Risk and Return");
+        nav_slideshow.setTitle("Calculate Debt");
+        nav_manage.setTitle("Calculate Interest Rate");
+        MenuItem title = menu.add("Time Value of Money");
+
+
         tfun.setText(name);
         String email = "";
         email = helper.seachEmail(name);
@@ -186,8 +208,8 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if (id == R.id.SignOut) {
+            session.logoutUser();
         }
 
         return super.onOptionsItemSelected(item);

@@ -14,8 +14,9 @@
         android:text="Main Menu"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
-        android:layout_marginLeft="25dp"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="16dp" />
 
     <TextView
         android:id="@+id/textView4"
@@ -24,8 +25,10 @@
         android:layout_marginLeft="25dp"
         android:layout_marginTop="71dp"
         android:text="@string/interestContent2"
+        android:textSize="20dp"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="25dp" />
 
     <TextView
         android:id="@+id/textView9"
@@ -33,7 +36,9 @@
         android:layout_height="39dp"
         android:layout_marginBottom="16dp"
         android:layout_marginLeft="23dp"
-        android:text="Inflation Rate"
+        android:layout_marginStart="23dp"
+        android:textSize="20dp"
+        android:text="@string/Inflation_Rate"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintLeft_toRightOf="@+id/button3" />
 </android.support.constraint.ConstraintLayout>
