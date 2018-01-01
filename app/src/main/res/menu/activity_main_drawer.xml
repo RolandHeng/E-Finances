@@ -3,21 +3,24 @@
 
     <group android:checkableBehavior="single">
         <item
+            android:id="@+id/nav_manage"
+            android:title="@string/Calculate_Interest_Rate" />
+        <item
             android:id="@+id/nav_camera"
             android:title="@string/Monthly" />
         <item
-            android:id="@+id/nav_gallery"
-            android:title="@string/riskReturn" />
+            android:id="@+id/nav_TVoM"
+            android:title="@string/Time_Value_of_Money" />
         <item
             android:id="@+id/nav_slideshow"
             android:title="@string/Calculate_Debt" />
         <item
-            android:id="@+id/nav_manage"
-            android:title="@string/Calculate_Interest_Rate" />
+            android:id="@+id/nav_gallery"
+            android:title="@string/riskReturn" />
 
-        <item
-            android:id="@+id/nav_TVoM"
-            android:title="@string/Time_Value_of_Money" />
+
+
+
 
         <item
             android:id="@+id/nav_manageProfile"

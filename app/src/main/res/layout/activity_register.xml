@@ -92,9 +92,9 @@
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="15dp"
                 android:ems="10"
-                android:textColor="@color/white"
                 android:hint="Email"
-                android:inputType="textPersonName"
+                android:inputType="textEmailAddress"
+                android:textColor="@color/white"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/text_input_layout1" />
         </android.support.design.widget.TextInputLayout>
@@ -116,10 +116,10 @@
                 android:layout_marginLeft="35dp"
                 android:layout_marginStart="35dp"
                 android:layout_marginTop="15dp"
-                android:textColor="@color/white"
                 android:ems="10"
                 android:hint="Username"
-                android:inputType="textPersonName"
+                android:inputType="text"
+                android:textColor="@color/white"
                 app:layout_constraintLeft_toLeftOf="parent" />
         </android.support.design.widget.TextInputLayout>
 
@@ -141,8 +141,8 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:hint="Mobile"
+                android:inputType="number"
                 android:textColor="@color/white"
-                android:inputType="textPersonName"
                 app:layout_constraintLeft_toLeftOf="parent" />
         </android.support.design.widget.TextInputLayout>
 
@@ -207,8 +207,8 @@
                 android:layout_marginTop="15dp"
                 android:ems="10"
                 android:hint="Address"
+                android:inputType="text"
                 android:textColor="@color/white"
-                android:inputType="textPersonName"
                 app:layout_constraintLeft_toLeftOf="parent" />
         </android.support.design.widget.TextInputLayout>
 
