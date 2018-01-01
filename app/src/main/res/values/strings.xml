@@ -10,7 +10,7 @@
     <string name="next">next</string>
     <string name="Monthly">Monthly Cost</string>
     <string name="Calculate_Debt">Calculate Debt</string>
-    <string name="Calculate_Interest_Rate">Calculate Interest Rate</string>
+    <string name="Calculate_Interest_Rate">Interest Rate</string>
     <string name="Time_Value_of_Money">Time Value of Money</string>
     <string name="Manage_Profile">Manage Profile</string>
     <string name="riskReturn">Risk and Return</string>

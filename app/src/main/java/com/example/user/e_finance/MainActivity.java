@@ -37,10 +37,7 @@ public class MainActivity extends AppCompatActivity
 
         if(session.checkLogin())
             finish();
-        //session = new Session(this);
-        //if(!session.loggedin()){
-        //    logout();
-       // }
+
 
         HashMap<String, String> user = session.getUserDetails();
 
@@ -91,20 +88,7 @@ public class MainActivity extends AppCompatActivity
         finish();
     }
 
-   /* @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data){
-        super.onActivityResult(requestCode,resultCode,data);
 
-        if(requestCode ==2){
-            if(null!= data){
-                String message = data.getStringExtra("MESSAGE");
-
-                TextView textViewMessage = (TextView)findViewById(R.id.textViewMessage);
-                textViewMessage.setText("Message is:"+ message);
-
-            }
-        }
-    }*/
 
     @Override
     protected void onResume() {
@@ -112,32 +96,6 @@ public class MainActivity extends AppCompatActivity
         super.onResume();
     }
 
-    private void updateList() {
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
-        View header = navigationView.getHeaderView(0);
-
-        TextView tfun = (TextView) header.findViewById(R.id.navUsername);
-        TextView tfemail = (TextView) header.findViewById(R.id.navEmail);
-        EditText tf = (EditText) findViewById(R.id.LoginUsername);
-
-        Intent intent = getIntent();
-
-        String message = "";
-        message = intent.getStringExtra(LogIn.EXTRA_MESSAGE);
-        if (!message.equals("")) {
-
-            String email = "";
-            email = helper.seachEmail(message);
-            tfun.setText(message);
-            tfemail.setText(email);
-        } else {
-            tfun.setText("Guest");
-            tfemail.setText("Please Register / Log In");
-        }
-
-
-    }
 
 
     @Override
@@ -181,17 +139,34 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_camera) {
 
+            Intent intentGetMessage = new Intent(this, monthlyCostCal.class);
+
+            startActivityForResult(intentGetMessage, 2);
+            finish();
 
         } else if (id == R.id.nav_gallery) {
 
 
         } else if (id == R.id.nav_slideshow) {
+            Intent intentGetMessage = new Intent(this, debtCal.class);
+
+            startActivityForResult(intentGetMessage, 2);
+            finish();
 
 
         } else if (id == R.id.nav_manage) {
 
+            Intent intentGetMessage = new Intent(this, InterestRate.class);
 
-        } else if(id== R.id.nav_manageProfile){
+            startActivityForResult(intentGetMessage, 2);
+            finish();
+
+
+        }else if (id == R.id.nav_TVoM) {
+
+
+
+        }else if(id== R.id.nav_manageProfile){
             Intent inten = new Intent(this, ManageProfile.class);
 
             startActivity(inten);
